@@ -17,6 +17,7 @@ pub use od::*;
 pub use pwd::*;
 
 #[cfg(any(all(target_arch = "aarch64", not(target_os = "macos")),
+          target_arch = "morello+c64",
           target_arch = "arm",
           target_arch = "asmjs",
           target_arch = "wasm32",
@@ -101,6 +102,9 @@ mod od {
 mod pwd {}
 
 #[cfg(target_pointer_width = "64")]
+mod pwd {}
+
+#[cfg(target_pointer_width = "128")]
 mod pwd {}
 
 pub type int8_t = i8;
